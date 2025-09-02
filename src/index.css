@@ -1,13 +1,48 @@
+/* Import a clean, professional font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* --- THEME VARIABLES --- */
+:root {
+  --background: #f9fafb; /* Light Grey */
+  --foreground: #111827; /* Dark Grey */
+  --card-background: #ffffff;
+  --primary-blue: #4f46e5;
+  --primary-blue-soft: #e0e7ff;
+  --muted-text: #6b7280;
+  --border-color: #e5e7eb;
+  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --card-shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+[data-theme='dark'] {
+  --background: #111827;
+  --foreground: #f9fafb;
+  --card-background: #1f2937;
+  --primary-blue: #818cf8;
+  --primary-blue-soft: #3730a3;
+  --muted-text: #9ca3af;
+  --border-color: #374151;
+}
+
+/* --- GLOBAL STYLES --- */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
