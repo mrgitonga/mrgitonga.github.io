@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="container">
         <div className="profile-card">
           <img
-            src="/professional-headshot.jpg"
+            src={process.env.PUBLIC_URL + "/professional-headshot.jpg"}
             alt="Professional headshot of Anderson G. Nyaga"
             className="profile-headshot"
           />
@@ -25,7 +25,7 @@ const Hero = () => {
               <span>LinkedIn</span>
             </a>
             <a
-              href="/resume.pdf"
+              href={process.env.PUBLIC_URL + "/resume.pdf"}
               download="Anderson_G_Nyaga_Resume.pdf"
               className="btn btn-secondary"
             >
@@ -33,7 +33,7 @@ const Hero = () => {
               <span>Resume</span>
             </a>
             <a
-              href="/Cyber_Shujaa_Certificate_AndersonNyaga.pdf"
+              href={process.env.PUBLIC_URL + "/Cyber_Shujaa_Certificate_AndersonNyaga.pdf"}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary"
