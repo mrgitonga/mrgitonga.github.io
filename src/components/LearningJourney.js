@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, BookOpen, FileText } from 'lucide-react'; // Ensured FileText is imported
+import { ExternalLink, BookOpen, FileText } from 'lucide-react';
 import './LearningJourney.css';
 
 const learningData = [
@@ -8,7 +8,7 @@ const learningData = [
         title: "Web Scraping",
         description: "Introduced the data lifecycle (ETL) by scraping NHL team stats using Python, requests, BeautifulSoup, and pandas from a paginated website.",
         topics: ["Web Scraping", "Requests", "BeautifulSoup", "Pandas", "ETL"],
-        projectUrl: "https://colab.research.google.com/drive/1i3tkd0sDOwdd_ORNvZ8CXbY-F4KZb0Wk?usp=sharing",
+        projectUrl: "https://colab.research.google.com/drive/1dmpzBEqtkMHgILyPJkp15eU1w4TPwxbP?usp=sharing", // <-- CORRECTED LINK
         reportUrl: "https://drive.google.com/file/d/1Hlmk7mXoeENlpIavuqwEBGrwEKiA_su8/view?usp=sharing"
     },
     {
@@ -56,7 +56,7 @@ const learningData = [
         title: "Classification Models",
         description: "Built and compared six classification models (e.g., Logistic Regression, Random Forest, SVM) to predict wine categories from the Scikit-learn Wine dataset.",
         topics: ["Classification", "Random Forest", "SVM", "Logistic Regression"],
-        projectUrl: "https://colab.research.google.com/drive/11vjCFH_slzPxPOh-Fr2HgP3hQLIOC2JI?usp=sharing",
+        projectUrl: "https://colab.research.google.com/drive/11vjCFH_slzPxPOh-Fr2HgP3hQLlOC2Jl?usp=sharing", // <-- CORRECTED LINK
         reportUrl: "https://drive.google.com/file/d/1OSDMFyNv_J2icYnQ5prM9yKrmSo15q3o/view?usp=sharing"
     },
     {
@@ -64,7 +64,7 @@ const learningData = [
         title: "MLOps",
         description: "Implemented a complete MLOps workflow to predict California house prices using a KNN regressor, focusing on pipelines and hyperparameter tuning.",
         topics: ["MLOps", "Pipelines", "GridSearchCV", "KNN Regressor"],
-        projectUrl: "https://colab.research.google.com/drive/1ZO139p2WGtGGaXpE83OT9NRm85HZDulh?usp=sharing",
+        projectUrl: "https://colab.research.google.com/drive/1ZO139p2WGtGGaXpE83OT9NRm85HZDuIh?usp=sharing", // <-- CORRECTED LINK
         reportUrl: "https://drive.google.com/file/d/1fqsG6FpQwXpzOMGTTb8viUlFfhPl8lC6/view?usp=sharing"
     },
     {
@@ -80,7 +80,7 @@ const learningData = [
         title: "NLP with Transformers",
         description: "Used a pre-trained BERT model from Hugging Face to determine the semantic similarity between sentence pairs using contextual embeddings.",
         topics: ["NLP", "Transformers", "BERT", "Hugging Face"],
-        projectUrl: "https://colab.research.google.com/drive/1W1H_T7EC7P1joZ4KdIKIVeeqD7trB2-5?usp=sharing",
+        projectUrl: "https://colab.research.google.com/drive/1W1H_T7EC7P1joZ4KdIKlVeeqD7trB2-5?usp=sharing", // <-- CORRECTED LINK
         reportUrl: "https://drive.google.com/file/d/1VEADj2EsCb6KqgUUCIX_LFAbiv-ebM9m/view?usp=sharing"
     },
     {
@@ -115,7 +115,6 @@ const WeekCard = ({ week }) => {
                         <ExternalLink size={14} className="external-link-icon" />
                     </a>
                 )}
-                {/* THIS IS THE NEWLY ADDED BLOCK FOR THE REPORT LINK */}
                 {week.reportUrl && (
                     <a href={week.reportUrl} target="_blank" rel="noopener noreferrer" className="week-link">
                         <FileText size={16} />
