@@ -7,7 +7,7 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/cybershujaa-portfolio"> {/* <-- 2. Wrap your App component */}
+    <BrowserRouter> 
       <App />
     </BrowserRouter>
   </React.StrictMode>
