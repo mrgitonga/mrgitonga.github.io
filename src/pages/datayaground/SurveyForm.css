@@ -1,0 +1,286 @@
+.dyg-form-wrapper {
+  background-color: hsl(var(--card));
+  padding: 2rem;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--shadow-card);
+}
+
+.dyg-progress-container {
+    margin-bottom: 2.5rem;
+}
+
+.dyg-progress-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: hsl(var(--muted-foreground));
+}
+
+.dyg-progress-bar {
+    width: 100%;
+    background-color: hsl(var(--muted));
+    border-radius: 9999px;
+    height: 0.5rem;
+    overflow: hidden;
+}
+
+.dyg-progress-fill {
+    height: 100%;
+    background-color: hsl(var(--secondary));
+    border-radius: 9999px;
+    transition: width 0.4s ease-in-out;
+}
+
+.dyg-form-section {
+    margin-bottom: 2rem;
+}
+
+.dyg-form-section.conditional {
+    background-color: hsla(var(--muted), 0.5);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px dashed hsl(var(--border));
+}
+
+.dyg-form-section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.dyg-form-section-description {
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 2rem;
+}
+
+.dyg-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.dyg-form-group:last-child {
+    margin-bottom: 0;
+}
+
+.dyg-form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.dyg-form-group input,
+.dyg-form-group select,
+.dyg-form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dyg-form-group input:focus,
+.dyg-form-group select:focus,
+.dyg-form-group textarea:focus {
+    outline: none;
+    border-color: hsl(var(--secondary));
+    box-shadow: 0 0 0 2px hsla(var(--secondary), 0.2);
+}
+
+.dyg-radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.dyg-radio-label input[type="radio"] {
+    width: auto;
+    accent-color: hsl(var(--secondary));
+}
+
+.dyg-form-note.error {
+    color: hsl(var(--accent));
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.conditional-inline {
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid hsl(var(--border));
+}
+
+.dyg-confirmation-box {
+    background-color: hsla(var(--muted), 0.5);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    color: hsl(var(--muted-foreground));
+}
+
+.dyg-confirmation-box p:first-child {
+    margin-bottom: 0.5rem;
+}
+
+.dyg-form-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically align buttons */
+    gap: 1rem; /* <-- THE FIX IS HERE: Adds space between the buttons */
+    margin-top: 2.5rem;
+    border-top: 1px solid hsl(var(--border));
+    padding-top: 1.5rem;
+}
+
+.dyg-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dyg-back-btn {
+    background-color: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+}
+
+.dyg-back-btn:hover {
+    background-color: hsla(var(--muted), 0.7);
+}
+
+.dyg-next-btn {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    margin-left: auto; /* Pushes to the right on steps before the final one */
+}
+
+.dyg-next-btn:hover {
+    opacity: 0.9;
+}
+
+.dyg-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-grow: 1; 
+    padding: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: hsl(var(--secondary-foreground));
+    background-color: hsl(var(--secondary));
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dyg-submit-btn:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+.dyg-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.dyg-spinner {
+    animation: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.dyg-error-message {
+    color: hsl(var(--accent));
+    text-align: center;
+    font-weight: 500;
+    margin-top: 1.5rem;
+}
+
+/* Success Card Styles */
+.dyg-submission-success-card {
+    background-color: hsl(var(--card));
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    box-shadow: var(--shadow-civic);
+    border: 1px solid hsl(var(--border));
+    margin-top: 5rem;
+}
+
+.dyg-success-icon {
+    width: 4rem;
+    height: 4rem;
+    color: hsl(var(--secondary));
+    margin: 0 auto 1.5rem;
+}
+
+.dyg-submission-success-card h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.dyg-submission-success-card p {
+    color: hsl(var(--muted-foreground));
+    font-size: 1.125rem;
+}
+
+.dyg-zap-code {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.25rem;
+    color: hsl(var(--accent));
+    background-color: hsla(var(--muted), 0.5);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1.5rem auto;
+    display: inline-block;
+}
+
+.dyg-success-note {
+    font-size: 1rem !important;
+    margin-top: 1.5rem;
+}
+.dyg-spinner-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

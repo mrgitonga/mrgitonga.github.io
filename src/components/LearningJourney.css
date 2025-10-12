@@ -6,7 +6,7 @@
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .section-title {
@@ -22,13 +22,21 @@
   margin: 0 auto;
 }
 
+.weekly-journey-header {
+    margin-top: 6rem; /* Add space between the two sections */
+}
+
 .journey-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
+/* Featured grid can have a different layout on larger screens if desired */
 @media (min-width: 768px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .journey-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -37,6 +45,11 @@
 @media (min-width: 1024px) {
   .journey-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 810px; /* Center the 2 cards */
+    margin: 0 auto;
   }
 }
 
@@ -77,8 +90,8 @@
 .week-description {
   color: var(--muted-text);
   line-height: 1.6;
-  flex-grow: 1; /* Pushes links to the bottom */
-  margin-bottom: 1.5rem; /* Ensure space before topics */
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
 }
 
 .week-topics {
@@ -107,7 +120,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  margin-top: auto; /* Pushes this block to the bottom of the card */
+  margin-top: auto;
 }
 
 .week-link {
@@ -127,4 +140,52 @@
 .external-link-icon {
   margin-left: auto;
   opacity: 0.6;
+}
+
+/* === STYLES FOR FEATURED PROJECT CARD === */
+
+.week-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.new-project-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.card-image-wrapper {
+    width: 100%;
+    height: 200px;
+    background-color: var(--background); /* BG for letterboxing */
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem; /* Padding for the 'contain' image */
+}
+
+.card-image-cover, .card-image-contain {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.card-image-cover {
+    object-fit: cover;
+    padding: 0; /* Cover images should have no padding */
+}
+
+.card-image-contain {
+    object-fit: contain; /* This ensures the image is not cropped */
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.project-highlight {
+  color: #f59e0b; /* A nice amber/gold color to stand out */
+  font-weight: 700;
 }

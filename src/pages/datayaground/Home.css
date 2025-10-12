@@ -1,0 +1,258 @@
+.dyg-hero {
+  position: relative;
+  padding: 5rem 0;
+  color: hsl(var(--primary-foreground));
+  background: var(--gradient-hero);
+  text-align: center;
+}
+
+.dyg-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.dyg-hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 56rem; /* max-w-4xl */
+}
+
+.dyg-hero-badge {
+  display: inline-flex; /* Use flex to align icon and text */
+  align-items: center;
+  gap: 0.5rem; /* Space between icon and text */
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: hsl(var(--accent));
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* === NEW STYLE FOR THE ICON === */
+.dyg-hero-badge-icon {
+  width: 24px;  /* Adjust size as needed */
+  height: 24px;
+}
+.dyg-hero-title {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.dyg-hero-subtitle {
+  font-size: 1.25rem; /* text-xl */
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .dyg-hero {
+    padding: 8rem 0;
+  }
+  .dyg-hero-title {
+    font-size: 3.75rem; /* text-6xl */
+  }
+  .dyg-hero-subtitle {
+    font-size: 1.5rem; /* text-2xl */
+  }
+}
+
+.dyg-hero-buttons {
+  display: flex;
+  flex-direction: column; /* Start with column layout for mobile */
+  gap: 1rem;
+  justify-content: center;
+  align-items: center; /* Center buttons in the column */
+}
+
+@media (min-width: 640px) {
+  .dyg-hero-buttons {
+    flex-direction: row; /* Switch to row layout on larger screens */
+  }
+}
+
+.dyg-btn {
+  width: 100%; /* Make buttons full width on mobile */
+  max-width: 240px; /* But not too wide */
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+    .dyg-btn {
+        width: auto; /* Revert to auto width on larger screens */
+    }
+}
+
+.dyg-btn-secondary {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+}
+
+.dyg-btn-secondary:hover {
+  opacity: 0.9;
+}
+
+.dyg-btn-outline {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid white;
+}
+
+.dyg-btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dyg-mission {
+  padding: 5rem 0;
+  background-color: hsl(var(--background));
+}
+
+.dyg-section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.dyg-mission-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 48rem; /* max-w-6xl - adjusted for 3 items */
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .dyg-mission-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 72rem; /* max-w-6xl */
+  }
+}
+
+.dyg-mission-card {
+  background-color: hsl(var(--card));
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.3s;
+}
+
+.dyg-mission-card:hover {
+  box-shadow: var(--shadow-civic);
+}
+
+.dyg-mission-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+.dyg-mission-icon svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.dyg-mission-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.dyg-mission-text {
+  color: hsl(var(--muted-foreground));
+  text-align: center;
+}
+
+.dyg-how-it-works {
+  padding: 5rem 0;
+  background-color: hsla(var(--muted), 0.3);
+}
+
+.dyg-timeline {
+  max-width: 48rem; /* max-w-4xl */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dyg-timeline-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.dyg-timeline-icon {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.dyg-timeline-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.dyg-timeline-text {
+  color: hsl(var(--muted-foreground));
+}
+
+.dyg-countdown-section {
+  padding: 5rem 0;
+  background-color: hsl(var(--background));
+}
+
+.dyg-countdown-wrapper {
+  max-width: 32rem; /* max-w-2xl */
+  margin: 0 auto;
+}
+
+.dyg-quote-section {
+  padding: 5rem 0;
+  background: linear-gradient(to right, hsl(var(--secondary)), hsl(var(--accent)));
+  color: white;
+}
+
+.dyg-quote {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  font-style: italic;
+  max-width: 56rem; /* max-w-4xl */
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .dyg-quote {
+    font-size: 2.25rem;
+  }
+}

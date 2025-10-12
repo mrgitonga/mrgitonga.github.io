@@ -1,0 +1,283 @@
+.dyg-about-section {
+  max-width: 64rem; /* max-w-5xl */
+  margin: 0 auto 5rem;
+}
+
+.dyg-prose {
+  max-width: none;
+  line-height: 1.7;
+}
+
+.dyg-story-card {
+  background-color: hsl(var(--card));
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid hsl(var(--border));
+}
+
+.dyg-story-card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.dyg-story-card p {
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 1rem;
+}
+
+.dyg-section-title {
+  font-size: 2.25rem;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.dyg-section-subtitle {
+  text-align: center;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 3rem;
+  max-width: 42rem; /* max-w-2xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Timeline Styles */
+.dyg-about-timeline-container {
+  position: relative;
+  max-width: 48rem; /* max-w-3xl */
+  margin: 0 auto;
+}
+
+.dyg-about-timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background-color: hsl(var(--border));
+}
+
+.dyg-about-timeline-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.dyg-about-timeline-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 10;
+  box-shadow: 0 0 0 4px hsl(var(--background));
+}
+
+.dyg-about-timeline-icon svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.dyg-about-timeline-content {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.dyg-about-timeline-content.left {
+  text-align: right;
+}
+
+.dyg-about-timeline-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.dyg-about-timeline-content p {
+  color: hsl(var(--muted-foreground));
+}
+
+/* Minister Model Styles */
+.dyg-minister-national-card {
+  background: linear-gradient(to right, hsl(var(--secondary)), hsl(var(--accent)));
+  color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-civic);
+  margin-bottom: 3rem;
+}
+
+.dyg-minister-icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dyg-minister-icon-wrapper.small {
+  margin-bottom: 0.5rem;
+}
+
+.dyg-minister-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dyg-minister-icon.small {
+  width: 3rem;
+  height: 3rem;
+}
+
+.dyg-minister-icon svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.dyg-minister-icon.small svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+}
+
+.dyg-minister-national-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.dyg-minister-national-card p {
+  opacity: 0.9;
+}
+
+.dyg-minister-regional-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .dyg-minister-regional-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.dyg-minister-regional-card {
+  background-color: hsl(var(--card));
+  padding: 1.5rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+}
+
+.dyg-minister-regional-card h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.dyg-minister-regional-card p {
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Follow Box Styles */
+.dyg-follow-box {
+  background-color: hsla(var(--muted), 0.5);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.dyg-follow-box h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.dyg-follow-box p {
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 1.5rem;
+}
+
+.dyg-follow-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* --- THE FIX: Change selector from 'button' to 'a' --- */
+.dyg-follow-buttons a {
+  padding: 0.75rem 1.5rem;
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none; /* Remove underline */
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.dyg-follow-buttons a:hover {
+  opacity: 0.9;
+}
+.dyg-how-it-works-grid {
+  max-width: 48rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dyg-how-it-works-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  background-color: hsl(var(--card));
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+}
+
+.dyg-how-it-works-icon {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.dyg-how-it-works-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.dyg-how-it-works-text {
+  color: hsl(var(--muted-foreground));
+}
+.dyg-follow-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}

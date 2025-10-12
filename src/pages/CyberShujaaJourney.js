@@ -1,31 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for internal routing
-import { ExternalLink, BookOpen, FileText } from 'lucide-react';
-import './LearningJourney.css';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, ExternalLink, BookOpen, FileText } from 'lucide-react';
+import './CyberShujaaJourney.css'; // We'll create this for page-specific styles
 
-// --- DATA FOR FEATURED PROJECTS ---
-const featuredProjectsData = [
-    {
-      isFeatured: true, // Custom flag
-      slug: "/projects/data-ya-ground", // The internal route for this project
-      title: "Data ya Ground",
-      description: "A civic tech project for grassroots data collection, empowering Kenyan communities to gather, own, and utilize data for local advocacy.",
-      topics: ["Civic Tech", "React", "Data Visualization", "Community Empowerment"],
-      image: "/datayaground-card.png",
-      imageFit: "contain" // Special property to prevent image cropping
-    },
-    {
-      isFeatured: true, // Custom flag
-      isStatic: true, // This card won't link to a new page
-      title: "Cyber Shujaa Program",
-      description: "A comprehensive 12-week training program in IT and Cybersecurity, focused on building foundational and advanced skills in the Data & AI track.",
-      topics: ["Data Science", "AI/ML", "Python", "Power BI", "Tableau", "NLP"],
-      image: "/cybershujaa-card.png",
-      imageFit: "cover" // Standard image cropping
-    }
-];
-
-// --- DATA FOR THE 12-WEEK LEARNING JOURNEY ---
+// Data for the 12-week learning journey projects
 const learningData = [
     {
         week: 1,
@@ -78,7 +56,7 @@ const learningData = [
     {
         week: 8,
         title: "Classification Models",
-        description: "Built and compared six classification models to predict wine categories from the Scikit-learn Wine dataset.",
+        description: "Built and compared six classification models (e.g., Logistic Regression, Random Forest, SVM) to predict wine categories from the Scikit-learn Wine dataset.",
         topics: ["Classification", "Random Forest", "SVM", "Logistic Regression"],
         projectUrl: "https://colab.research.google.com/drive/11vjCFH_slzPxPOh-Fr2HgP3hQLlOC2Jl?usp=sharing",
         reportUrl: "https://drive.google.com/file/d/1OSDMFyNv_J2icYnQ5prM9yKrmSo15q3o/view?usp=sharing"
@@ -117,111 +95,60 @@ const learningData = [
     }
 ];
 
-// --- RENDER COMPONENTS ---
-
-const FeaturedProjectCard = ({ project }) => {
-    const cardInnerContent = (
-      <div className="week-card new-project-card">
-        <div className="card-image-wrapper">
-            <img 
-                src={process.env.PUBLIC_URL + project.image} 
-                alt={project.title} 
-                className={project.imageFit === 'contain' ? 'card-image-contain' : 'card-image-cover'}
-            />
-        </div>
-        <div className="card-content">
-          <div className="week-card-header">
-            <span className="week-number project-highlight">Featured Project</span>
+// Re-using the card component from the old LearningJourney file
+const WeekCard = ({ project }) => {
+    return (
+      <div className="week-card">
+        <div className="week-card-header">
+            <span className="week-number">Week {project.week}</span>
             <h3 className="week-title">{project.title}</h3>
-          </div>
-          <p className="week-description">{project.description}</p>
-          <div className="week-topics">
+        </div>
+        <p className="week-description">{project.description}</p>
+        <div className="week-topics">
             {project.topics.map((topic, index) => (
-              <span key={index} className="topic-badge">{topic}</span>
+                <span key={index} className="topic-badge">{topic}</span>
             ))}
-          </div>
+        </div>
+        <div className="week-links">
+            {project.projectUrl && (
+                <a href={project.projectUrl} target="_blank" rel="noopener noreferrer" className="week-link">
+                    <BookOpen size={16} />
+                    <span>View Project</span>
+                    <ExternalLink size={14} className="external-link-icon" />
+                </a>
+            )}
+            {project.reportUrl && (
+                <a href={project.reportUrl} target="_blank" rel="noopener noreferrer" className="week-link">
+                    <FileText size={16} />
+                    <span>View Report</span>
+                    <ExternalLink size={14} className="external-link-icon" />
+                </a>
+            )}
         </div>
       </div>
     );
-  
-    // If the card is static (like the Cyber Shujaa summary), render it as a div.
-    // Otherwise, wrap it in a Link to make it clickable.
-    if (project.isStatic) {
-      return cardInnerContent;
-    }
-  
-    return (
-      <Link to={project.slug} className="week-card-link">
-        {cardInnerContent}
-      </Link>
-    );
-};
+  };
 
-const WeeklyProjectCard = ({ project }) => {
+const CyberShujaaJourney = () => {
     return (
-        <div className="week-card">
-            <div className="week-card-header">
-                <span className="week-number">Week {project.week}</span>
-                <h3 className="week-title">{project.title}</h3>
+        <div className="journey-page-container">
+            <div className="journey-header">
+                <Link to="/" className="portfolio-back-link">
+                    <ArrowLeft size={18} />
+                    <span>Back to Portfolio</span>
+                </Link>
+                <h1 className="journey-main-title">Cyber Shujaa: 12-Week Journey</h1>
+                <p className="journey-subtitle">
+                    A complete log of my projects from the Data & AI track.
+                </p>
             </div>
-            <p className="week-description">{project.description}</p>
-            <div className="week-topics">
-                {project.topics.map((topic, index) => (
-                    <span key={index} className="topic-badge">{topic}</span>
+            <div className="journey-grid">
+                {learningData.map((project, index) => (
+                    <WeekCard key={index} project={project} />
                 ))}
-            </div>
-            <div className="week-links">
-                {project.projectUrl && (
-                    <a href={project.projectUrl} target="_blank" rel="noopener noreferrer" className="week-link">
-                        <BookOpen size={16} />
-                        <span>View Project</span>
-                        <ExternalLink size={14} className="external-link-icon" />
-                    </a>
-                )}
-                {project.reportUrl && (
-                    <a href={project.reportUrl} target="_blank" rel="noopener noreferrer" className="week-link">
-                        <FileText size={16} />
-                        <span>View Report</span>
-                        <ExternalLink size={14} className="external-link-icon" />
-                    </a>
-                )}
             </div>
         </div>
     );
 };
 
-const LearningJourney = () => {
-  return (
-      <section className="journey-section">
-          <div className="container">
-              {/* --- FEATURED PROJECTS SECTION --- */}
-              <div className="section-header">
-                  <h2 className="section-title">Featured Projects</h2>
-                  <p className="section-subtitle">
-                      My latest and most significant work.
-                  </p>
-              </div>
-              <div className="journey-grid featured-grid">
-                  {featuredProjectsData.map((project, index) => (
-                      <FeaturedProjectCard key={index} project={project} />
-                  ))}
-              </div>
-
-              {/* --- 12-WEEK LEARNING JOURNEY SECTION --- */}
-              <div className="section-header weekly-journey-header">
-                  <h2 className="section-title">12-Week Learning Journey</h2>
-                  <p className="section-subtitle">
-                      A complete log of projects from the Cyber Shujaa Data & AI track.
-                  </p>
-              </div>
-              <div className="journey-grid">
-                  {learningData.map((project, index) => (
-                      <WeeklyProjectCard key={index} project={project} />
-                  ))}
-              </div>
-          </div>
-      </section>
-  );
-};
-
-export default LearningJourney;
+export default CyberShujaaJourney;

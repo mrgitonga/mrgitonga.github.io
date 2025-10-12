@@ -1,39 +1,77 @@
-/* Import a clean, professional font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* Import the Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 /* --- THEME VARIABLES --- */
 :root {
-  --background: #f9fafb; /* Light Grey */
-  --foreground: #111827; /* Dark Grey */
-  --card-background: #ffffff;
+  /* Light Mode Color System */
+  --background: 40 20% 97%; /* warm-beige */
+  --foreground: 0 0% 10%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+
+  /* Kenya Black */
+  --primary: 0 0% 0%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Kenya Green */
+  --secondary: 120 100% 20%;
+  --secondary-foreground: 0 0% 100%;
+  
+  /* Kenya Red */
+  --accent: 0 73% 37%;
+  --accent-foreground: 0 0% 100%;
+
+  --muted: 40 20% 90%;
+  --muted-foreground: 0 0% 40%;
+  
+  --border: 40 15% 85%;
+
+  /* Gradients & Shadows */
+  --gradient-hero: linear-gradient(135deg, hsl(0 0% 5%) 0%, hsl(0 0% 15%) 50%, hsl(0 73% 37%) 100%);
+  --shadow-civic: 0 4px 20px hsla(0 0% 0% / 0.08);
+  --shadow-card: 0 2px 12px hsla(0 0% 0% / 0.06);
+
+  /* Helper colors for old components */
   --primary-blue: #4f46e5;
   --primary-blue-soft: #e0e7ff;
-  --muted-text: #6b7280;
-  --border-color: #e5e7eb;
-  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --card-shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-[data-theme='dark'] {
-  --background: #111827;
-  --foreground: #f9fafb;
-  --card-background: #1f2937;
+/* --- DARK MODE THEME --- */
+body[data-theme='dark'] {
+  --background: 220 40% 10%; /* Dark Navy Blue */
+  --foreground: 0 0% 95%;
+
+  --card: 0 0% 12%; /* Slightly lighter than background for non-glass cards */
+  --card-foreground: 0 0% 95%;
+
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 0%;
+
+  --secondary: 120 100% 25%;
+  --secondary-foreground: 0 0% 100%;
+
+  --accent: 0 73% 45%;
+  --accent-foreground: 0 0% 100%;
+
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 60%;
+  
+  --border: 0 0% 20%;
+
+  /* Helper colors for old components in dark mode */
   --primary-blue: #818cf8;
   --primary-blue-soft: #3730a3;
-  --muted-text: #9ca3af;
-  --border-color: #374151;
 }
 
 /* --- GLOBAL STYLES --- */
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -42,7 +80,7 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }

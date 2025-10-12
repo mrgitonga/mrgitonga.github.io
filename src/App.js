@@ -1,29 +1,34 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './components/ThemeProvider'; // <-- Import the new provider
 import Header from './components/Header';
 import Hero from './components/Hero';
-import LearningJourney from './components/LearningJourney';
+import ProjectShowcase from './components/ProjectShowcase';
+import CyberShujaaJourney from './pages/CyberShujaaJourney';
+import DataYaGroundApp from './pages/datayaground/DataYaGroundApp';
 import './App.css';
 
-// A simple ThemeProvider to set the default theme
-const ThemeProvider = ({ children, defaultTheme = 'light' }) => {
-  React.useEffect(() => {
-    // On mount, set the theme attribute on the body
-    document.body.setAttribute('data-theme', defaultTheme);
-    // Optional: save to local storage if you build out a theme toggle
-    localStorage.setItem('theme', defaultTheme);
-  }, [defaultTheme]);
-
-  return <>{children}</>;
-};
+// Main page layout component for the homepage
+const MainLayout = () => (
+  <>
+    <Hero />
+    <ProjectShowcase />
+  </>
+);
 
 function App() {
   return (
-    <ThemeProvider defaultTheme='dark'>
+    // The ThemeProvider now intelligently handles everything
+    <ThemeProvider>
       <div className="App">
-        <Header />
+        <Header /> {/* This header will now hide itself on the correct pages */}
         <main>
-          <Hero />
-          <LearningJourney />
+          <Routes>
+            <Route path="/" element={<MainLayout />} />
+            <Route path="/cybershujaa-portfolio" element={<MainLayout />} /> 
+            <Route path="/projects/cyber-shujaa" element={<CyberShujaaJourney />} />
+            <Route path="/projects/data-ya-ground/*" element={<DataYaGroundApp />} />
+          </Routes>
         </main>
       </div>
     </ThemeProvider>
