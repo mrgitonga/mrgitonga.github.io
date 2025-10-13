@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { BarChart3, Users } from "lucide-react";
 import QRCodeCard from './QRCodeCard';
 import './About.css';
@@ -14,6 +15,22 @@ const About = () => {
 
   return (
     <div className="dyg-page-container">
+      <Helmet>
+        <script 
+          type="text/javascript" 
+          src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" 
+          data-name="bmc-button" 
+          data-slug="datayaground" 
+          data-color="#ffa21f" 
+          data-emoji=""  
+          data-font="Cookie" 
+          data-text="Buy us a coffee" 
+          data-outline-color="#000000" 
+          data-font-color="#000000" 
+          data-coffee-color="#FFDD00"
+          async
+        ></script>
+      </Helmet>
       <div className="dyg-about-section">
         <div className="dyg-page-header">
           <h1>About Data ya Ground</h1>
@@ -122,6 +139,19 @@ const About = () => {
               South West
             </Link>
           </div>
+        </div>
+      </div>
+      <div className="dyg-about-section">
+        <div className="dyg-support-box">
+          <h2>Support Our Mission</h2>
+          <p>
+            Thank you for visiting us. To support this project, please consider buying us a coffee. Your contribution helps us maintain the platform and continue our work of amplifying the voices of Kenyans.
+          </p>
+          {/* The script injected by Helmet will automatically find and replace this link */}
+          <a href="https://www.buymeacoffee.com/datayaground" target="_blank" rel="noopener noreferrer">
+            {/* This is a fallback link that will show if the script fails to load */}
+            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Us A Coffee" style={{ height: '60px', width: '217px' }} />
+          </a>
         </div>
       </div>
     </div>

@@ -281,3 +281,35 @@
   gap: 1rem;
   justify-content: center;
 }
+.dyg-support-box {
+  background-color: hsla(var(--muted), 0.3);
+  padding: 2.5rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dyg-support-box h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.dyg-support-box p {
+  color: hsl(var(--muted-foreground));
+  max-width: 600px; /* Limit the width of the paragraph */
+  margin: 0 auto 2rem auto; /* Center the paragraph */
+  line-height: 1.7;
+}
+
+/* Style for the fallback image link */
+.dyg-support-box a {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.dyg-support-box a:hover {
+  transform: scale(1.05);
+}
