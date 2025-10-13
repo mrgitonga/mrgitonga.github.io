@@ -93,7 +93,7 @@
     .dyg-btn {
         width: auto; /* Revert to auto width on larger screens */
     }
-}
+} 
 
 .dyg-btn-secondary {
   background-color: hsl(var(--secondary));

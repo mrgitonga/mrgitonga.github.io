@@ -25,6 +25,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<MainLayout />} />
+            <Route path="/projects" element={<MainLayout />} />
             <Route path="/cybershujaa-portfolio" element={<MainLayout />} /> 
             <Route path="/projects/cyber-shujaa" element={<CyberShujaaJourney />} />
             <Route path="/projects/data-ya-ground/*" element={<DataYaGroundApp />} />
