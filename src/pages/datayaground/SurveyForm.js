@@ -87,6 +87,10 @@ const SurveyForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (submissionStatus === 'submitting') return;
+    if (!formData.consentGiven) {
+      setError("You must consent to the privacy policy to submit.");
+      return;
+    }
 
     const age = parseInt(formData.age, 10);
     if (age < 18 && formData.parentalPermission !== 'Yes') {
@@ -110,9 +114,7 @@ const SurveyForm = () => {
         body: formDataBody,
       });
 
-      if (!response.ok) {
-        throw new Error(`Server responded with status: ${response.status}`);
-      }
+      if (!response.ok) throw new Error(`Server responded with status: ${response.status}`);
       const result = await response.json();
       if (result.status === 'success' && result.code) {
         setZapCode(result.code);
@@ -129,15 +131,15 @@ const SurveyForm = () => {
 
   if (submissionStatus === 'success') {
     return (
-        <div className="dyg-submission-success-card animate-fade-in">
-          <CheckCircle className="dyg-success-icon" />
-          <h2>Thank you, {formData.fullName}!</h2>
-          <p>Your Data ya Ground ZAP code is:</p>
-          <div className="dyg-zap-code">{zapCode}</div>
-          <p className="dyg-success-note">
-            Please keep this code safely. It will be used to verify your entry during the ZAP confirmation stage.
-          </p>
-        </div>
+      <div className="dyg-submission-success-card animate-fade-in">
+        <CheckCircle className="dyg-success-icon" />
+        <h2>Thank you, {formData.fullName}!</h2>
+        <p>Your Data ya Ground ZAP code is:</p>
+        <div className="dyg-zap-code">{zapCode}</div>
+        <p className="dyg-success-note">
+          Please keep this code safely. It will be used to verify your entry during the ZAP confirmation stage.
+        </p>
+      </div>
     );
   }
 
@@ -215,24 +217,25 @@ const SurveyForm = () => {
                   </div>
               )}
               {currentStep === 5 && (
-                  <div className="dyg-form-section">
-                      <h3 className="dyg-form-section-title">Section 4 — Confirmation</h3>
-                      <div className="dyg-confirmation-box"><p>Please review your answers. Once submitted, they cannot be changed.</p><p>After submission, your unique ZAP code will appear on screen. Kindly save it safely — it will be required for verification later.</p></div>
-                      <div className="dyg-form-group consent-group">
-                        <label className="dyg-radio-label">
-                          <input 
-                            type="checkbox" 
-                            name="consentGiven"
-                            checked={formData.consentGiven} 
-                            onChange={(e) => setFormData(prev => ({...prev, consentGiven: e.target.checked}))}
-                            required 
-                          />
-                          <span>I confirm that I am 18 years or older, or that I have parental/guardian permission to participate, and I consent to the use of my anonymous responses as outlined in the <Link to="/projects/data-ya-ground/privacy" target="_blank">Privacy Policy</Link>.</span>
-                        </label>
-                      </div>
-                  </div>
-              )}
+                    <div className="dyg-form-section">
+                        <h3 className="dyg-form-section-title">Section 4 — Confirmation</h3>
+                        <div className="dyg-confirmation-box"><p>Please review your answers. Once submitted, they cannot be changed.</p><p>After submission, your unique ZAP code will appear on screen. Kindly save it safely — it will be required for verification later.</p></div>
+                        <div className="dyg-form-group consent-group">
+                          <label className="dyg-radio-label">
+                            <input 
+                              type="checkbox" 
+                              name="consentGiven"
+                              checked={formData.consentGiven} 
+                              onChange={handleInputChange} // Use the standard handler
+                              required 
+                            />
+                            <span>I confirm that I am 18 years or older, or that I have parental/guardian permission to participate, and I consent to the use of my anonymous responses as outlined in the <Link to="/projects/data-ya-ground/privacy" target="_blank">Privacy Policy</Link>.</span>
+                          </label>
+                        </div>
+                    </div>
+                )}
               </div>
+        
               
               {error && <p className="dyg-error-message animate-fade-in">{error}</p>}
               
@@ -240,14 +243,15 @@ const SurveyForm = () => {
               {currentStep > 1 && (<button type="button" onClick={prevStep} className="dyg-nav-btn dyg-back-btn"><ArrowLeft /> Back</button>)}
               {currentStep < totalSteps && (<button type="button" onClick={nextStep} className="dyg-nav-btn dyg-next-btn">Next <ArrowRight /></button>)}
               {currentStep === totalSteps && (
-                <button 
-                  type="submit" 
-                  className="dyg-submit-btn" 
-                  disabled={submissionStatus === 'submitting' || !formData.consentGiven}
-                >
-                  <Send />
-                  {submissionStatus === 'submitting' ? 'Submitting...' : 'Submit Survey'}
-                </button>
+                  <button 
+                    type="button" 
+                    onClick={handleSubmit}
+                    className="dyg-submit-btn" 
+                    disabled={submissionStatus === 'submitting' || !formData.consentGiven}
+                  >
+                    <Send />
+                    {submissionStatus === 'submitting' ? 'Submitting...' : 'Submit Survey'}
+                  </button>
               )}
               </div>
           </form>
