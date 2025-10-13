@@ -284,3 +284,33 @@
     transform: rotate(360deg);
   }
 }
+.consent-group {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: hsla(var(--muted), 0.5);
+  border-radius: 0.5rem;
+}
+
+.consent-group .dyg-radio-label {
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.consent-group input[type="checkbox"] {
+  margin-top: 5px; /* Align checkbox with the first line of text */
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.consent-group span {
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.6;
+}
+
+.consent-group a {
+  color: hsl(var(--secondary));
+  text-decoration: underline;
+  font-weight: 600;
+}

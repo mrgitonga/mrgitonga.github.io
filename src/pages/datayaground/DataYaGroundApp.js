@@ -5,6 +5,7 @@ import Home from './Home';
 import Survey from './Survey';     // <-- Ensure this is correctly imported
 import Dashboard from './Dashboard';
 import About from './About';
+import Privacy from './Privacy'
 
 const DataYaGroundApp = () => {
   return (
@@ -14,6 +15,7 @@ const DataYaGroundApp = () => {
         <Route path="survey" element={<Survey />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="about" element={<About />} />
+        <Route path="privacy" element={<Privacy />} />         
       </Route>
     </Routes>
   );

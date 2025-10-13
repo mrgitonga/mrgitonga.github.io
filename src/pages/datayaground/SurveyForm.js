@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CheckCircle, Send, ArrowLeft, ArrowRight } from 'lucide-react';
 import './SurveyForm.css';
 import geoData from '../../data/kenya-geo.json'; 
@@ -17,7 +18,7 @@ const SurveyForm = () => {
     parentalPermission: '', parentParticipating: '', isParent: '', dependents: '', 
     communityChanges: '', kenyaChanges: '', leaderActions: '', urgentArea: '', 
     otherUrgentArea: '', hopeForKenya: '', howHeard: '', otherHowHeard: '',
-    participateAgain: '',
+    participateAgain: '', consentGiven: false,
   });
 
   const [submissionStatus, setSubmissionStatus] = useState('idle');
@@ -96,7 +97,7 @@ const SurveyForm = () => {
     setError('');
     setSubmissionStatus('submitting');
     
-    const webAppUrl = 'https://script.google.com/macros/s/AKfycbyQ-lC3MsrSIoxoSaqCs5Sl3y1ssKhwm2M8bRvsEQ_mK-5ioMx9xs-yxzSEMlDa9JUt/exec';
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycby1z00vn0fYfe1N6wb7WdQJIdeUj2P9Xm20vZMGsw8_ddFHo0nqLehTG-pvsRHK6zrU/exec';
 
     const formDataBody = new FormData();
     for (const key in formData) {
@@ -217,6 +218,18 @@ const SurveyForm = () => {
                   <div className="dyg-form-section">
                       <h3 className="dyg-form-section-title">Section 4 — Confirmation</h3>
                       <div className="dyg-confirmation-box"><p>Please review your answers. Once submitted, they cannot be changed.</p><p>After submission, your unique ZAP code will appear on screen. Kindly save it safely — it will be required for verification later.</p></div>
+                      <div className="dyg-form-group consent-group">
+                        <label className="dyg-radio-label">
+                          <input 
+                            type="checkbox" 
+                            name="consentGiven"
+                            checked={formData.consentGiven} 
+                            onChange={(e) => setFormData(prev => ({...prev, consentGiven: e.target.checked}))}
+                            required 
+                          />
+                          <span>I confirm that I am 18 years or older, or that I have parental/guardian permission to participate, and I consent to the use of my anonymous responses as outlined in the <Link to="/projects/data-ya-ground/privacy" target="_blank">Privacy Policy</Link>.</span>
+                        </label>
+                      </div>
                   </div>
               )}
               </div>
@@ -227,9 +240,12 @@ const SurveyForm = () => {
               {currentStep > 1 && (<button type="button" onClick={prevStep} className="dyg-nav-btn dyg-back-btn"><ArrowLeft /> Back</button>)}
               {currentStep < totalSteps && (<button type="button" onClick={nextStep} className="dyg-nav-btn dyg-next-btn">Next <ArrowRight /></button>)}
               {currentStep === totalSteps && (
-                <button type="submit" className="dyg-submit-btn" disabled={submissionStatus === 'submitting' || (ageAsNumber < 18 && formData.parentalPermission !== 'Yes')}>
-                  {/* --- THE FIX: We use a CSS class for the spinner, not the Loader2 icon --- */}
-                  {submissionStatus === 'submitting' ? <div className="dyg-spinner-icon" /> : <Send />}
+                <button 
+                  type="submit" 
+                  className="dyg-submit-btn" 
+                  disabled={submissionStatus === 'submitting' || !formData.consentGiven}
+                >
+                  <Send />
                   {submissionStatus === 'submitting' ? 'Submitting...' : 'Submit Survey'}
                 </button>
               )}

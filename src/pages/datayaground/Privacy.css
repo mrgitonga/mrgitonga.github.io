@@ -1,0 +1,52 @@
+.dyg-privacy-container {
+    max-width: 56rem; /* max-w-3xl */
+}
+
+.dyg-privacy-content {
+    background-color: hsl(var(--card));
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+    text-align: left;
+    line-height: 1.7;
+}
+
+.dyg-last-updated {
+    font-size: 0.875rem;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 2rem;
+    border-bottom: 1px solid hsl(var(--border));
+    padding-bottom: 1rem;
+}
+
+.dyg-privacy-content section {
+    margin-bottom: 2.5rem;
+}
+
+.dyg-privacy-content h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.dyg-privacy-content p {
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 1rem;
+}
+
+.dyg-privacy-content ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 1rem;
+}
+
+.dyg-privacy-content li {
+    margin-bottom: 0.75rem;
+}
+
+.dyg-privacy-content strong {
+    color: hsl(var(--foreground));
+    font-weight: 600;
+}
