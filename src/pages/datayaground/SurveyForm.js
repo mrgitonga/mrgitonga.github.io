@@ -101,7 +101,7 @@ const SurveyForm = () => {
     setError('');
     setSubmissionStatus('submitting');
     
-    const webAppUrl = 'https://script.google.com/macros/s/AKfycbwrpil-XP6501gGm9zvmNWjkgUWXU_sCMC5xfLQoUHEylOVY7gEUmt_2Ol5nvidxA-q/exec';
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbzTZ8ngspiFWYAsYSCrFcypZ-eJqzUpjxU1s7jUNcvRU9usSmnJkv0akJgTPTlGjsNM/exec';
 
     const formDataBody = new FormData();
     for (const key in formData) {
