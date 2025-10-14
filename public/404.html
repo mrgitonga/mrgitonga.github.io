@@ -13,10 +13,10 @@
       var redirectPath = path.startsWith(repoName) ? path.substring(repoName.length) : path;
       
       // Store the correct client-side route path.
-      sessionStorage.redirect = redirectPath;
+      sessionStorage.redirect = location.pathname;
 
       // Redirect the user to the root of your project on GitHub Pages.
-      window.location.replace(repoName);
+      window.location.replace('/');
     </script>
   </head>
   <body>
