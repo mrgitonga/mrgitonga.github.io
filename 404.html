@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      // Get the current URL path, including the repository name.
+      var path = window.location.pathname;
+
+      // Extract the part of the path that comes *after* your repository name.
+      // This is the path that React Router needs to see.
+      var repoName = '/cybershujaa-portfolio';
+      var redirectPath = path.startsWith(repoName) ? path.substring(repoName.length) : path;
+      
+      // Store the correct client-side route path.
+      sessionStorage.redirect = location.pathname;
+
+      // Redirect the user to the root of your project on GitHub Pages.
+      window.location.replace('/');
+    </script>
+  </head>
+  <body>
+    If you are not redirected automatically, follow this <a href="/cybershujaa-portfolio">link to the homepage</a>.
+  </body>
+</html>
