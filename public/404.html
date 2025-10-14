@@ -3,14 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>Redirecting...</title>
-    <script>
-      // Save the path the user was trying to access.
-      // We slice(1) to remove the leading slash.
-      sessionStorage.redirect = location.pathname.slice(1);
+    <script type="text/javascript">
+      // Get the current URL path, including the repository name.
+      var path = window.location.pathname;
+
+      // Extract the part of the path that comes *after* your repository name.
+      // This is the path that React Router needs to see.
+      var repoName = '/cybershujaa-portfolio';
+      var redirectPath = path.startsWith(repoName) ? path.substring(repoName.length) : path;
+      
+      // Store the correct client-side route path.
+      sessionStorage.redirect = redirectPath;
+
+      // Redirect the user to the root of your project on GitHub Pages.
+      window.location.replace(repoName);
     </script>
-    <!-- This meta tag redirects to your homepage -->
-    <meta http-equiv="refresh" content="0;URL='/cybershujaa-portfolio/'"></meta>
   </head>
   <body>
+    If you are not redirected automatically, follow this <a href="/cybershujaa-portfolio">link to the homepage</a>.
   </body>
 </html>

@@ -10,16 +10,21 @@
     <meta name="description" content="A professional portfolio showcasing Anderson G. Nyaga's 12-week learning journey through Cyber Shujaa's Data & AI course." />
     <meta name="author" content="Anderson G. Nyaga" />
 
-    <script>
+    <script type="text/javascript">
       (function() {
+        // Check if there is a saved redirect path in session storage.
         const redirect = sessionStorage.getItem('redirect');
-        sessionStorage.removeItem('redirect');
-        if (redirect && redirect !== location.pathname) {
-          // Use history.replaceState to change the URL without reloading
-          history.replaceState(null, null, redirect);
+        // If there is, remove it from storage.
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          // Use the History API to change the URL in the browser bar to the correct
+          // client-side route without causing a page reload.
+          // Your React Router will then pick up this path and render the correct component.
+          window.history.replaceState(null, null, '/cybershujaa-portfolio' + redirect);
         }
       })();
     </script>
+    
     <!-- === NEW FAVICON LINKS START === -->
     <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png">
