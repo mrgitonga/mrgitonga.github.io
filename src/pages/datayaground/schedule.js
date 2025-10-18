@@ -18,7 +18,7 @@ export const scheduleConfig = {
   currentMode: 'fortnight test', // Options: '4-minute test', 'fortnight test', 'production'
 
   // --- GOOGLE FORM URL FOR THE ZAP EVENT ---
-  zapFormEmbedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfZgFvz3_45O0bG1RgoT-qws4YW4WW1y_4GM4Qu3X--jaT0MQ/viewform?embedded=true",
+  zapFormEmbedUrl: process.env.REACT_APP_ZAP_FORM_EMBED_URL,
 
   // --- OFFICIAL PRODUCTION SCHEDULE (DERIVED FROM YOUR DOCUMENT) ---
   // The survey runs from 'start' (Sunday 7pm) to 'end' (the following Sunday 7pm).

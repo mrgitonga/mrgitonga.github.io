@@ -101,7 +101,7 @@ const SurveyForm = () => {
     setError('');
     setSubmissionStatus('submitting');
     
-    const webAppUrl = 'https://script.google.com/macros/s/AKfycbzTZ8ngspiFWYAsYSCrFcypZ-eJqzUpjxU1s7jUNcvRU9usSmnJkv0akJgTPTlGjsNM/exec';
+    const webAppUrl = process.env.REACT_APP_SURVEY_WEB_APP_URL;
 
     const formDataBody = new FormData();
     for (const key in formData) {
