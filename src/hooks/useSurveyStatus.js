@@ -34,7 +34,7 @@ export const useSurveyStatus = () => {
         }
         case 'fortnight test': {
           const totalCycleMs = 14 * 24 * 60 * 60 * 1000;
-          const epoch = createEATDate('2025-01-05').getTime(); // Use a fixed past Sunday as the starting point for cycles
+          const epoch = createEATDate('2025-10-19').getTime(); // Use a fixed past Sunday as the starting point for cycles
           const msSinceEpoch = now.getTime() - epoch;
           const cycleStartTimestamp = epoch + Math.floor(msSinceEpoch / totalCycleMs) * totalCycleMs;
           
